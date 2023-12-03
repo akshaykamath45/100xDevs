@@ -52,4 +52,28 @@ const user3 = {
 console.log(user1.name)
 
 
+// array of objects
+const users = [
+    {
+        name: "akshay",
+        age: 20,
+        gender: "male"
+    },
+    {
+        name: "rohit",
+        age: 37,
+        gender: "male"
+    },
+    {
+        name: "virat",
+        age: 35,
+        gender: "female"
+    }
+]
+for(let i=0;i<users.length;i++){
+    if(users[i].gender=="male"){
+        console.log(users[i].name);
+    }
+}
+
 
