@@ -29,11 +29,27 @@ const personArray = ["akshay", "virat", "rohit"]
 console.log(personArray[1])
 
 // printing all even numbers in array
-const ages=[18,19,20,32,23,35,46,34];
-for(let i=0;i<ages.length;i++){
-    if(ages[i]%2==0){
+const ages = [18, 19, 20, 32, 23, 35, 46, 34];
+for (let i = 0; i < ages.length; i++) {
+    if (ages[i] % 2 == 0) {
         console.log(ages[i])
     }
 }
+
+// objects
+const user1 = {
+    name: "akshay",
+    age: 20
+}
+const user2 = {
+    name: "rohit",
+    age: 37
+}
+const user3 = {
+    name: "virat",
+    age: 35
+}
+console.log(user1.name)
+
 
 
