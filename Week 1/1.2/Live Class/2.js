@@ -18,8 +18,22 @@ if (isLearning == true) {
 // }
 
 // calculating sum up to n using for loop  
-let answer=0
-for(let i=0;i<=1000;i++){
-    answer+=i;
+let answer = 0
+for (let i = 0; i <= 1000; i++) {
+    answer += i;
 }
 console.log(answer)
+
+//arrays
+const personArray = ["akshay", "virat", "rohit"]
+console.log(personArray[1])
+
+// printing all even numbers in array
+const ages=[18,19,20,32,23,35,46,34];
+for(let i=0;i<ages.length;i++){
+    if(ages[i]%2==0){
+        console.log(ages[i])
+    }
+}
+
+
