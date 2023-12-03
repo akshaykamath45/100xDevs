@@ -23,3 +23,9 @@ function displayResultPassive(data) {
 // You are only allowed to call one function after this
 // How will you displayResult of a sum
 sum1(4, 5, displayResult);
+
+// using setTimeout function,which takes another function as an argumnent,hence it is an callback function.
+function greet(){
+    console.log("hello")
+}
+setTimeout(greet,4*1000)
