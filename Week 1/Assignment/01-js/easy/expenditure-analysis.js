@@ -14,7 +14,7 @@
 
 
 function calculateTotalSpentByCategory(transactions) {
-  return   transactions.reduce((acc, transaction) => {
+  return transactions.reduce((acc, transaction) => {
     const existingCategory = acc.find(
       (category) => category.category === transaction.category
     );
@@ -23,7 +23,6 @@ function calculateTotalSpentByCategory(transactions) {
     } else {
       acc.push({ category: transaction.category, totalSpent: transaction.price });
     }
-
     return acc;
   }, []);
 }
@@ -66,7 +65,7 @@ const transactions = [
   },
 ];
 
-console.log(calculateTotalSpentByCategory(transactions)) 
+console.log(calculateTotalSpentByCategory(transactions))
 
 //practicing reduce
 
