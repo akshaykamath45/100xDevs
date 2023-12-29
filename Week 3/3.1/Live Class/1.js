@@ -5,6 +5,16 @@ app.get("/", (req, res) => {
   res.send("Hospital Management");
 });
 
+
+let count = 0;
+function countRequest(req, res, next) {
+  count++;
+  console.log(`Total requests : ${count}`);
+  next();
+}
+
+app.use(countRequest);
+
 // To check kidney
 // It will do 2 things :
 // 1. Authentication   -> username and password passed in headers should be correct
