@@ -13,7 +13,20 @@ function countRequest(req, res, next) {
   next();
 }
 
+function timeMiddleware(req, res, next) {
+    const start = Date.now();
+    res.on("finish", () => {
+      const end = Date.now();
+      console.log(`Time taken : ${end - start} ms`);
+    });
+    next();
+  }
+
+// app.use() - > is like a global middleware,which will be applied to all the routes.  
 app.use(countRequest);
+app.use(timeMiddleware);
+
+
 
 // To check kidney
 // It will do 2 things :
