@@ -107,3 +107,11 @@ app.post("/health-checkup",(req,res)=>{
     res.json({message:`You have ${kidneyLength} kidneys`})
 })
 
+// global catches - > error handling middleware , takes 4 inputs, placed at last . exception is hidden.
+app.use((err,req,res,next)=>{
+    res.json({
+        message:"Sorry,something is up with our server",
+    })
+    console.log(err)
+    console.log(err.stack)
+})
