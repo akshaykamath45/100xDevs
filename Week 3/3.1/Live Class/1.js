@@ -25,7 +25,7 @@ function timeMiddleware(req, res, next) {
 // app.use() - > is like a global middleware,which will be applied to all the routes.  
 app.use(countRequest);
 app.use(timeMiddleware);
-
+app.use(express.json()) // helps in post request for extracitng json data from the body
 
 
 // To check kidney
@@ -92,3 +92,18 @@ app.get("/replace-kidney", userMiddleware, kidneyMiddleware, (req, res) => {
 
   res.json({ message: "You are healthy enough to replace kidney " });
 });
+
+
+// input validation
+app.post("/health-checkup",(req,res)=>{
+    // kidney is an array and can have only size as 2 - > [1,2]
+
+    // user could pass any thing in body , it could be a number , object,string,anything
+    // so we need a input validation here
+
+    const kidneys=req.body.kidneys;
+    const kidneyLength=kidneys.length;
+    console.log(`You have ${kidneyLength} kidneys`)
+    res.json({message:`You have ${kidneyLength} kidneys`})
+})
+
