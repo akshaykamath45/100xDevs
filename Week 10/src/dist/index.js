@@ -36,7 +36,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-//  Function to create user table in a database
 var pg_1 = require("pg");
 var client = new pg_1.Client({
     // host: 'practice-akshaykamath193-7673.a.aivencloud.com',
@@ -47,6 +46,7 @@ var client = new pg_1.Client({
     // connection_string: postgres:avnadmin:AVNS_DadUkmbwvbbAAW0ep9c@practice-akshaykamath193-7673.a.aivencloud.com:16794/defaultdb?sslmode=require
     connectionString: "postgresql://akshaykamath193:ULBHn5W4RPsq@ep-rough-firefly-66355830.us-east-2.aws.neon.tech/test?sslmode=require"
 });
+//  function to create user table in a database
 function createUsersTable() {
     return __awaiter(this, void 0, void 0, function () {
         var result;

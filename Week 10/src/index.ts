@@ -1,4 +1,4 @@
-//  Function to create user table in a database
+
 import { Client } from 'pg'
  
 const client = new Client({
@@ -13,7 +13,7 @@ const client = new Client({
   })
   
   
-
+//  function to create user table in a database
 async function createUsersTable() {
     await client.connect()
     const result = await client.query(`
