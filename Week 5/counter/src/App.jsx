@@ -2,7 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-
+import CustomButton from "../components/CustomButton";
 function App() {
   const [count, setCount] = useState(0);
   const handleOnClick = () => {
@@ -10,8 +10,7 @@ function App() {
   };
   return (
     <div>
-      <h2>Count: {count}</h2>
-      <button onClick={handleOnClick}>Increase count</button>
+      <CustomButton count={count} handleOnClick={handleOnClick}></CustomButton>
     </div>
   );
 }
