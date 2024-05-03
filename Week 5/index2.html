@@ -17,6 +17,7 @@
         function buttonComponentReRender() {
             document.getElementById("buttonParent").innerHTML = "";
             const component = buttonComponent(state.count);
+            console.log(component)
             document.getElementById("buttonParent").appendChild(component);
         }
 
