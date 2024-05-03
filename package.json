@@ -4,5 +4,8 @@
     "expresss": "^0.0.0",
     "fs": "^0.0.1-security",
     "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.28.1"
   }
 }
