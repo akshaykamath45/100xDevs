@@ -1,5 +1,7 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
+const { Todo } = require("./db");
+
 const app = express();
 app.use(express.json());
 const PORT = 3000 || process.env.PORT;
@@ -15,12 +17,25 @@ app.post("/todo", async (req, res) => {
     res.status(411).json("You have send wrong inputs");
     return;
   }
-  // add mongodb logic 
+  const todo = await Todo.create({
+    title: todoBody.title,
+    description: todoBody.description,
+    isCompleted: false,
+  });
+  res.json({
+    message: "Todo created",
+    todo: todo,
+  });
 });
 
 app.get("/todos", async (req, res) => {
-  // directly add mongodb logic
+  const todos = await Todo.find({});
+  res.json({
+    message: "Todos fetched",
+    todos: todos,
+  });
 });
+
 app.put("/completed", async (req, res) => {
   const updateTodoBody = req.body;
   const parsedBody = updateTodo.safeParse(updateTodoBody);
@@ -28,8 +43,14 @@ app.put("/completed", async (req, res) => {
     res.status(411).json("You have send wrong inputs");
     return;
   }
-  // add mongodb logic
+  await Todo.updateOne({ _id: updateTodoBody.id }, { isCompleted: true });
+  const updatedTodo = await Todo.find({ _id: updateTodoBody.id });
+  res.json({
+    message: "Updated todo",
+    todo: updatedTodo,
+  });
 });
+
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);
 });

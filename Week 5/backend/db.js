@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI);
 const todoSchema = mongoose.Schema({
@@ -9,7 +11,7 @@ const todoSchema = mongoose.Schema({
   description: {
     type: String,
   },
-  isComplete: {
+  isCompleted: {
     type: Boolean,
   },
 });
