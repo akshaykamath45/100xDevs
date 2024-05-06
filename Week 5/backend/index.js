@@ -45,11 +45,16 @@ app.put("/completed", async (req, res) => {
     res.status(411).json("You have send wrong inputs");
     return;
   }
-  await Todo.updateOne({ _id: updateTodoBody.id }, { isCompleted: true });
-  const updatedTodo = await Todo.find({ _id: updateTodoBody.id });
+  const todo = await Todo.findOne({ _id: updateTodoBody.id });
+  await Todo.updateOne(
+    { _id: updateTodoBody.id },
+    { isCompleted: !todo.isCompleted }
+  );
+  const updatedTodos = await Todo.find({});
+
   res.json({
     message: "Updated todo",
-    todo: updatedTodo,
+    todos: updatedTodos,
   });
 });
 
