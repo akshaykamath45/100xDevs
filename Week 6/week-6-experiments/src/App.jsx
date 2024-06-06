@@ -2,6 +2,21 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 function App() {
+  return (
+    <>
+      <HeaderWithButton />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+    </>
+  );
+}
+
+function HeaderWithButton() {
   const [title, setTitle] = useState("harkirat");
 
   return (
@@ -9,15 +24,7 @@ function App() {
       <button onClick={() => setTitle(Math.random())}>
         Click me to change title
       </button>
-
-      <Header title={`My name is  ${title}`} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
+      {title}
     </>
   );
 }
