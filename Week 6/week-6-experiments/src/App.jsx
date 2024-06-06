@@ -1,31 +1,28 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import "./App.css";
 import Header from "./components/Header";
 function App() {
-  return (
-    <>
-      <HeaderWithButton />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-      <Header title={"My name is raman"} />
-    </>
-  );
-}
-
-function HeaderWithButton() {
   const [title, setTitle] = useState("harkirat");
-
+  // const Header = memo(function Header({ title }) {
+  //   return <div>{title}</div>;
+  // });
+  function updateTitle() {
+    setTitle(Math.random());
+  }
   return (
-    <>
-      <button onClick={() => setTitle(Math.random())}>
-        Click me to change title
-      </button>
-      {title}
-    </>
+    <div>
+      <button onClick={updateTitle}>Click me to change title</button>
+
+      <Header title={title} />
+      <Header title="My name is raman" />
+      <Header title="My name is raman" />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+      <Header title={"My name is raman"} />
+    </div>
   );
 }
 
